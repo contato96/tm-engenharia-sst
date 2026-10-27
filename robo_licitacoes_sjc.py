@@ -16,41 +16,41 @@ URL_PLANILHA_TM = "https://script.google.com/macros/s/AKfycbxBhdjr_mhGsfNhLyT3Tr
 TELEGRAM_TOKEN = "8269224927:AAHb26HEwbFWBeRtQpkOFHGVZLrEYlbuW4s"
 TELEGRAM_CHAT_ID = "7193404104"
 
-# Mapeamento dos nomes dos municípios por código IBGE para identificação local
-MUNICIPIOS_MAP = {
-    "3550308": "SAO PAULO",
-    "3549904": "SAO JOSE DOS CAMPOS",
-    "3548500": "SANTOS",
-    "3524402": "JACAREI",
-    "3508504": "CACAPAVA",
-    "3554102": "TAUBATE",
-    "3538006": "PINDAMONHANGABA",
-    "3518404": "GUARATINGUETA",
-    "3527207": "LORENA",
-    "3513405": "CRUZEIRO",
-    "3546306": "SANTA BRANCA",
-    "3520202": "IGARATA",
-    "3535606": "PARAIBUNA",
-    "3555406": "UBATUBA",
-    "3510500": "CARAGUATATUBA",
-    "3550704": "SAO SEBASTIAO",
-    "3518800": "GUARULHOS",
-    "3503901": "ARUJA",
-    "3546801": "SANTA ISABEL",
-    "3530607": "MOGI DAS CRUZES",
-    "3552502": "SUZANO",
-    "3523107": "ITAQUAQUECETUBA",
-    "3539806": "POA",
-    "3515707": "FERRAZ DE VASCONCELOS",
-    "3510609": "CARAPICUIBA",
-    "3534401": "OSASCO",
-    "3547809": "SANTO ANDRE",
-    "3548708": "SAO BERNARDO DO CAMPO",
-    "3548807": "SAO CAETANO DO SUL",
-    "3513801": "DIADEMA",
-    "3529401": "MAUA",
-    "3543303": "RIBEIRAO PIRES",
-}
+# 32 Cidades Mapeadas (Nomes Normalizados para Validação)
+CIDADES_ALVO = [
+    "SAO PAULO",
+    "SAO JOSE DOS CAMPOS",
+    "SANTOS",
+    "JACAREI",
+    "CACAPAVA",
+    "TAUBATE",
+    "PINDAMONHANGABA",
+    "GUARATINGUETA",
+    "LORENA",
+    "CRUZEIRO",
+    "SANTA BRANCA",
+    "IGARATA",
+    "PARAIBUNA",
+    "UBATUBA",
+    "CARAGUATATUBA",
+    "SAO SEBASTIAO",
+    "GUARULHOS",
+    "ARUJA",
+    "SANTA ISABEL",
+    "MOGI DAS CRUZES",
+    "SUZANO",
+    "ITAQUAQUECETUBA",
+    "POA",
+    "FERRAZ DE VASCONCELOS",
+    "CARAPICUIBA",
+    "OSASCO",
+    "SANTO ANDRE",
+    "SAO BERNARDO DO CAMPO",
+    "SAO CAETANO DO SUL",
+    "DIADEMA",
+    "MAUA",
+    "RIBEIRAO PIRES",
+]
 
 TERMOS_PERMITIDOS = [
     r"\bPGR\b",
@@ -123,6 +123,11 @@ def remover_acentos(texto: str) -> str:
   return "".join([c for c in nfkd if not unicodedata.combining(c)]).upper()
 
 
+def validar_cidade_alvo(municipio_nome: str) -> bool:
+  nome_limpo = remover_acentos(municipio_nome)
+  return any(cidade in nome_limpo for cidade in CIDADES_ALVO)
+
+
 def validar_objeto_licitacao(objeto_texto: str) -> bool:
   texto_tratado = remover_acentos(objeto_texto)
   if any(
@@ -176,7 +181,7 @@ def executar_mapeamento_pncp():
   print("==================================================================")
 
   data_fim = datetime.now()
-  data_ini = data_fim - timedelta(days=60)
+  data_ini = data_fim - timedelta(days=90)
 
   data_inicial_str = data_ini.strftime("%Y%m%d")
   data_final_str = data_fim.strftime("%Y%m%d")
@@ -192,13 +197,12 @@ def executar_mapeamento_pncp():
       "Accept": "application/json",
   }
 
-  # Modalidades: 6 (Pregão Eletrônico), 8 (Dispensa de Licitação), 14 (Concorrência)
   modalidades = [6, 8, 14]
 
   for mod in modalidades:
     print(f"🔍 Consultando Modalidade PNCP: {mod}...")
 
-    for pagina in range(1, 10):  # Percorre até 9 páginas por modalidade
+    for pagina in range(1, 15):  # Busca profunda de páginas
       params = {
           "dataInicial": data_inicial_str,
           "dataFinal": data_final_str,
@@ -212,11 +216,9 @@ def executar_mapeamento_pncp():
             URL_PNCP, params=params, headers=headers, timeout=15
         )
         if resposta.status_code != 200:
-          print(f"    ⚠️ Erro HTTP {resposta.status_code}. A avançar...")
           break
         dados_pagina = resposta.json()
-      except Exception as e:
-        print(f"    ❌ Excepção: {e}")
+      except Exception:
         break
 
       lista_editais = dados_pagina.get("data") or []
@@ -232,14 +234,17 @@ def executar_mapeamento_pncp():
             or edital.get("objeto")
             or ""
         )
+        municipio_nome = (
+            edital.get("unidadeOrgao", {}).get("municipioNome") or ""
+        )
 
-        if validar_objeto_licitacao(objeto_descricao):
+        # VALIDAÇÃO DUPLA: Objeto de Engenharia/SST + Pertencer às 32 Cidades
+        if validar_objeto_licitacao(
+            objeto_descricao
+        ) and validar_cidade_alvo(municipio_nome):
           total_oportunidades_tm += 1
           orgao_nome = edital.get("orgaoEntidade", {}).get(
               "razaoSocial", "Órgão Omitido"
-          )
-          municipio_nome = (
-              edital.get("unidadeOrgao", {}).get("municipioNome") or "SP"
           )
           valor_estimado = edital.get("valorTotalEstimado") or 0.0
 
@@ -254,7 +259,10 @@ def executar_mapeamento_pncp():
           else:
             link_painel_pncp = "https://pncp.gov.br/app/editais"
 
-          print(f"    🎯 FOCADO: {orgao_nome[:35]} | R$ {valor_estimado:,.2f}")
+          print(
+              f"    🎯 FOCADO ({municipio_nome}): {orgao_nome[:30]} | R$"
+              f" {valor_estimado:,.2f}"
+          )
 
           lista_json_vercel.append({
               "orgao": orgao_nome,
@@ -270,7 +278,7 @@ def executar_mapeamento_pncp():
           )
 
           msg_telegram = (
-              f"🎯 *NOVA OPORTUNIDADE FILTRADA!*\n\n"
+              f"🎯 *NOVA OPORTUNIDADE REGIONAL FILTRADA!*\n\n"
               f"🏢 *Órgão:* {orgao_nome}\n"
               f"📍 *Cidade:* {municipio_nome}\n"
               f"💰 *Valor Estimado:* R$ {valor_estimado:,.2f}\n"
@@ -279,15 +287,15 @@ def executar_mapeamento_pncp():
           )
           enviar_alerta_telegram(msg_telegram)
 
-      time.sleep(0.5)
+      time.sleep(0.3)
 
   with open("licitacoes.json", "w", encoding="utf-8") as f:
     json.dump(lista_json_vercel, f, ensure_ascii=False, indent=2)
 
   print("\n==================================================================")
   print(
-      f"📋 FIM DA VARREDURA! Analisados: {total_varridas} | Injetados:"
-      f" {total_oportunidades_tm}"
+      f"📋 FIM DA VARREDURA! Analisados: {total_varridas} | Injetados Na"
+      f" Região: {total_oportunidades_tm}"
   )
   print("==================================================================")
 
