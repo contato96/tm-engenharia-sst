@@ -1,9 +1,8 @@
-name: Executar Robô Minerador SST 24h
+name: Executar Robo Minerador SST 24h
 
 on:
   schedule:
-    schedule:
-    - cron: '*/30 * * * *'  # Roda de 30 em 30 minutos
+    - cron: '0 * * * *'
   workflow_dispatch:
 
 jobs:
@@ -11,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 1. Baixar código do repositório
+      - name: 1. Baixar codigo do repositorio
         uses: actions/checkout@v3
 
       - name: 2. Configurar ambiente Python
@@ -24,7 +23,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests google-generativeai pandas
 
-      - name: 4. Executar Robô Scraper + IA Gemini
+      - name: 4. Executar Robo Scraper + IA Gemini
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python robo_licitacoes_sjc.py
@@ -34,5 +33,5 @@ jobs:
           git config --global user.name 'Robo-TM-Engenharia'
           git config --global user.email 'robo@tmengenharia.com'
           git add licitacoes.json
-          git commit -m "Auto-update: Licitações Filé Mignon atualizadas [skip ci]" || exit 0
+          git commit -m "Auto-update: Licitacoes File Mignon atualizadas [skip ci]" || exit 0
           git push
