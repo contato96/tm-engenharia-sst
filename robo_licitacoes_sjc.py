@@ -4,24 +4,20 @@ import re
 import time
 import unicodedata
 from datetime import datetime, timedelta
-import pandas as pd
 import requests
 
 # ==============================================================================
 # 1. CONFIGURAÇÕES DE ENDEREÇOS E APIs
 # ==============================================================================
-URL_PNCP = "https://pncp.gov.br"
+URL_PNCP = "https://pncp.gov.br/api/consulta/v1/contratacoes/publicacao"
 UF_SP = "SP"
 
-# URL OFICIAL DEFINIDA
 URL_PLANILHA_TM = "https://script.google.com/macros/s/AKfycbxBhdjr_mhGsfNhLyT3Trx6aQZgjkoRsMCfeZK01HMTn85Gg5qAsK_Kfzcl_FT0a03f/exec"
-
-# Configurações Autenticadas do Telegram
 TELEGRAM_TOKEN = "8269224927:AAHb26HEwbFWBeRtQpkOFHGVZLrEYlbuW4s"
 TELEGRAM_CHAT_ID = "7193404104"
 
-# 32 Cidades Mapeadas do Vale do Paraíba e Regiões Estratégicas
-MUNICIPIOS_IBGE = {
+# Mapeamento dos nomes dos municípios por código IBGE para identificação local
+MUNICIPIOS_MAP = {
     "3550308": "SAO PAULO",
     "3549904": "SAO JOSE DOS CAMPOS",
     "3548500": "SANTOS",
@@ -153,16 +149,9 @@ def enviar_oportunidade_para_planilha(
       "escopo": objeto,
   }
   try:
-    response = requests.get(URL_PLANILHA_TM, params=params, timeout=15)
-    if response.status_code == 200:
-      print(
-          "    📊 [PLANILHA] Oportunidade enviada para o Google Sheets com"
-          " sucesso!"
-      )
-    else:
-      print(f"    ⚠️ Resposta da Planilha (Status {response.status_code})")
-  except Exception as e:
-    print(f"    ❌ Falha ao conectar na Planilha Google: {e}")
+    requests.get(URL_PLANILHA_TM, params=params, timeout=10)
+  except Exception:
+    pass
 
 
 def enviar_alerta_telegram(mensagem: str):
@@ -177,8 +166,8 @@ def enviar_alerta_telegram(mensagem: str):
         },
         timeout=10,
     )
-  except Exception as e:
-    print(f"❌ Erro Telegram: {e}")
+  except Exception:
+    pass
 
 
 def executar_mapeamento_pncp():
@@ -187,7 +176,7 @@ def executar_mapeamento_pncp():
   print("==================================================================")
 
   data_fim = datetime.now()
-  data_ini = data_fim - timedelta(days=90)  # Janela de 90 dias
+  data_ini = data_fim - timedelta(days=60)
 
   data_inicial_str = data_ini.strftime("%Y%m%d")
   data_final_str = data_fim.strftime("%Y%m%d")
@@ -196,57 +185,44 @@ def executar_mapeamento_pncp():
   total_oportunidades_tm = 0
   lista_json_vercel = []
 
-  # CABEÇALHO PARA NÃO SER BLOQUEADO PELO PNCP
   headers = {
       "User-Agent": (
-          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,"
-          " like Gecko) Chrome/120.0.0.0 Safari/537.36"
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
       ),
       "Accept": "application/json",
   }
 
-  for codigo_ibge, nome_cidade in MUNICIPIOS_IBGE.items():
-    print(f"🔍 Varrendo Cidade: {nome_cidade}...")
-    pagina = 1
+  # Modalidades: 6 (Pregão Eletrônico), 8 (Dispensa de Licitação), 14 (Concorrência)
+  modalidades = [6, 8, 14]
 
-    while pagina <= 5:  # Limite seguro de páginas por município
+  for mod in modalidades:
+    print(f"🔍 Consultando Modalidade PNCP: {mod}...")
+
+    for pagina in range(1, 10):  # Percorre até 9 páginas por modalidade
       params = {
           "dataInicial": data_inicial_str,
           "dataFinal": data_final_str,
-          "codigoMunicipioIbge": codigo_ibge,
+          "codigoModalidadeContratacao": mod,
           "uf": UF_SP,
           "pagina": pagina,
-          "tamanhoPagina": 50,
+          "tamPag": 50,
       }
       try:
         resposta = requests.get(
-            f"{URL_PNCP}/api/consulta/v1/contratacoes/publicacao",
-            params=params,
-            headers=headers,
-            timeout=20,
+            URL_PNCP, params=params, headers=headers, timeout=15
         )
-
         if resposta.status_code != 200:
-          print(
-              f"    ⚠️ Aviso da API PNCP em {nome_cidade} (Status"
-              f" {resposta.status_code}). Aguardando retorno..."
-          )
-          time.sleep(2)
+          print(f"    ⚠️ Erro HTTP {resposta.status_code}. A avançar...")
           break
-
         dados_pagina = resposta.json()
       except Exception as e:
-        print(f"    ❌ Exceção de conexão em {nome_cidade}: {e}")
+        print(f"    ❌ Excepção: {e}")
         break
 
-      if (
-          not dados_pagina
-          or "data" not in dados_pagina
-          or len(dados_pagina["data"]) == 0
-      ):
+      lista_editais = dados_pagina.get("data") or []
+      if not lista_editais:
         break
 
-      lista_editais = dados_pagina["data"]
       total_varridas += len(lista_editais)
 
       for edital in lista_editais:
@@ -262,7 +238,10 @@ def executar_mapeamento_pncp():
           orgao_nome = edital.get("orgaoEntidade", {}).get(
               "razaoSocial", "Órgão Omitido"
           )
-          valor_estimado = edital.get("valorTotalEstimado", 0.0)
+          municipio_nome = (
+              edital.get("unidadeOrgao", {}).get("municipioNome") or "SP"
+          )
+          valor_estimado = edital.get("valorTotalEstimado") or 0.0
 
           cnpj_orgao = re.sub(
               r"\D", "", str(edital.get("orgaoEntidade", {}).get("cnpj", ""))
@@ -277,10 +256,9 @@ def executar_mapeamento_pncp():
 
           print(f"    🎯 FOCADO: {orgao_nome[:35]} | R$ {valor_estimado:,.2f}")
 
-          # Estrutura para salvar na Vercel
           lista_json_vercel.append({
               "orgao": orgao_nome,
-              "cidade": nome_cidade,
+              "cidade": municipio_nome,
               "valor": valor_estimado,
               "objeto": objeto_descricao,
               "link": link_painel_pncp,
@@ -294,18 +272,15 @@ def executar_mapeamento_pncp():
           msg_telegram = (
               f"🎯 *NOVA OPORTUNIDADE FILTRADA!*\n\n"
               f"🏢 *Órgão:* {orgao_nome}\n"
-              f"📍 *Cidade:* {nome_cidade}\n"
+              f"📍 *Cidade:* {municipio_nome}\n"
               f"💰 *Valor Estimado:* R$ {valor_estimado:,.2f}\n"
               f"📋 *Objeto:* {objeto_descricao[:180]}...\n\n"
               f"🔗 [Abrir Painel Oficial do Edital]({link_painel_pncp})"
           )
           enviar_alerta_telegram(msg_telegram)
 
-      pagina += 1
-      # Pausa de 1.2s entre páginas para o PNCP não bloquear por velocidade
-      time.sleep(1.2)
+      time.sleep(0.5)
 
-  # SALVA O ARQUIVO JSON PARA SINCRONIZAR COM A VERCEL
   with open("licitacoes.json", "w", encoding="utf-8") as f:
     json.dump(lista_json_vercel, f, ensure_ascii=False, indent=2)
 
