@@ -1,0 +1,17 @@
+{
+  "name": "TM Engenharia - Gestão & Oportunidades",
+  "short_name": "TM Engenharia",
+  "description": "Painel Filé Mignon de Oportunidades e Automação de Licitações",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0b1120",
+  "theme_color": "#0b1120",
+  "icons": [
+    {
+      "src": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' width='512' height='512'><rect width='512' height='512' rx='100' fill='%23f0f4f8'/><g fill='%23f97316'><path d='M 256 128 C 210 128 190 160 185 180 L 327 180 C 322 160 302 128 256 128 Z'/><rect x='170' y='180' width='172' height='18' rx='9'/></g><g fill='%231b365d'><path d='M 115 220 H 245 V 255 H 198 V 375 H 162 V 255 H 115 Z'/></g></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
