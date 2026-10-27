@@ -2,7 +2,8 @@ name: Executar Robô Minerador SST 24h
 
 on:
   schedule:
-    - cron: '0 */2 * * *'
+    schedule:
+    - cron: '*/30 * * * *'  # Roda de 30 em 30 minutos
   workflow_dispatch:
 
 jobs:
