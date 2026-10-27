@@ -7,99 +7,34 @@ from datetime import datetime, timedelta
 import requests
 
 # ==============================================================================
-# 1. CONFIGURAÇÕES DE ENDEREÇOS E APIs
+# 1. CONFIGURAÇÕES E PARÂMETROS DE BUSCA
 # ==============================================================================
-URL_PNCP = "https://pncp.gov.br/api/consulta/v1/contratacoes/publicacao"
+URL_PNCP_BUSCA = "https://pncp.gov.br/api/consulta/v1/contratacoes/publicacao"
 UF_SP = "SP"
 
 URL_PLANILHA_TM = "https://script.google.com/macros/s/AKfycbxBhdjr_mhGsfNhLyT3Trx6aQZgjkoRsMCfeZK01HMTn85Gg5qAsK_Kfzcl_FT0a03f/exec"
-
 TELEGRAM_TOKEN = "8269224927:AAHb26HEwbFWBeRtQpkOFHGVZLrEYlbuW4s"
 TELEGRAM_CHAT_ID = "7193404104"
 
-# 32 Cidades Mapeadas do Vale do Paraíba e Regiões Estratégicas
-MUNICIPIOS_IBGE = {
-    "3550308": "SAO PAULO",
-    "3549904": "SAO JOSE DOS CAMPOS",
-    "3548500": "SANTOS",
-    "3524402": "JACAREI",
-    "3508504": "CACAPAVA",
-    "3554102": "TAUBATE",
-    "3538006": "PINDAMONHANGABA",
-    "3518404": "GUARATINGUETA",
-    "3527207": "LORENA",
-    "3513405": "CRUZEIRO",
-    "3546306": "SANTA BRANCA",
-    "3520202": "IGARATA",
-    "3535606": "PARAIBUNA",
-    "3555406": "UBATUBA",
-    "3510500": "CARAGUATATUBA",
-    "3550704": "SAO SEBASTIAO",
-    "3518800": "GUARULHOS",
-    "3503901": "ARUJA",
-    "3546801": "SANTA ISABEL",
-    "3530607": "MOGI DAS CRUZES",
-    "3552502": "SUZANO",
-    "3523107": "ITAQUAQUECETUBA",
-    "3539806": "POA",
-    "3515707": "FERRAZ DE VASCONCELOS",
-    "3510609": "CARAPICUIBA",
-    "3534401": "OSASCO",
-    "3547809": "SANTO ANDRE",
-    "3548708": "SAO BERNARDO DO CAMPO",
-    "3548807": "SAO CAETANO DO SUL",
-    "3513801": "DIADEMA",
-    "3529401": "MAUA",
-    "3543303": "RIBEIRAO PIRES",
-}
-
-TERMOS_PERMITIDOS = [
-    r"\bPGR\b",
-    r"\bLTCAT\b",
-    r"\bPCMSO\b",
-    r"\bSEGURANCA DO TRABALHO\b",
-    r"\bLAUDO DE INSALUBRIDADE\b",
-    r"\bLAUDO DE PERICULOSIDADE\b",
-    r"\bANALISE ERGONOMICA\b",
-    r"\bAET\b",
-    r"\bLAUDO\b",
-    r"\bLAUDOS\b",
-    r"\bNR-10\b",
-    r"\bNR10\b",
-    r"\bNR-12\b",
-    r"\bNR12\b",
-    r"\bNR-13\b",
-    r"\bNR13\b",
-    r"\bNR-33\b",
-    r"\bNR33\b",
-    r"\bNR-35\b",
-    r"\bNR35\b",
-    r"\bTREINAMENTO NR\b",
-    r"\bBRIGADA DE INCENDIO\b",
-    r"\bPMOC\b",
-    r"\bAR CONDICIONADO\b",
-    r"\bADEQUACAO DE MAQUINAS\b",
-    r"\bCALDEIRA\b",
-    r"\bVASO DE PRESSAO\b",
-    r"\bENGENHARIA MECANICA\b",
-    r"\bSISTEMA DE EXAUSTAO\b",
-    r"\bMANUTENCAO\b",
-    r"\bAVCB\b",
-    r"\bCLCB\b",
-    r"\bCOMBATE A INCENDIO\b",
-    r"\bCORPO DE BOMBEIROS\b",
-    r"\bLAUDO TECNICO DE ENGENHARIA\b",
-    r"\bPERICIA\b",
-    r"\bVISTORIA\b",
-    r"\bINSPECAO\b",
-    r"\bCARREGADOR ELETRICO\b",
-    r"\bPONTO DE RECARGA\b",
-    r"\bESTACAO DE RECARGA\b",
-    r"\bIT 43\b",
-    r"\bIT-43\b",
-    r"\bCARRO ELETRICO\b",
-    r"\bVEICULO ELETRICO\b",
-    r"\bELETROPOSTO\b",
+# Palavras-chave para consulta direta na API do PNCP
+TERMOS_BUSCA_API = [
+    "PGR",
+    "LTCAT",
+    "PCMSO",
+    "SEGURANCA DO TRABALHO",
+    "LAUDO DE INSALUBRIDADE",
+    "LAUDO DE PERICULOSIDADE",
+    "ANALISE ERGONOMICA",
+    "NR-10",
+    "NR-12",
+    "NR-13",
+    "NR-33",
+    "NR-35",
+    "BRIGADA DE INCENDIO",
+    "PMOC",
+    "AVCB",
+    "ENGENHARIA MECANICA",
+    "VISTORIA ENGENHARIA",
 ]
 
 TERMOS_PROIBIDOS = [
@@ -131,17 +66,10 @@ def validar_objeto_licitacao(objeto_texto: str) -> bool:
       for termo in TERMOS_PROIBIDOS
   ):
     return False
-  if any(
-      re.search(re.compile(termo, re.IGNORECASE), texto_tratado)
-      for termo in TERMOS_PERMITIDOS
-  ):
-    return True
-  return False
+  return True
 
 
-def enviar_oportunidade_para_planilha(
-    orgao, valor_estimado, objeto, link_edital=""
-):
+def enviar_oportunidade_para_planilha(orgao, valor_estimado, objeto):
   params = {
       "tipo": "sheet",
       "orgao": orgao,
@@ -150,16 +78,9 @@ def enviar_oportunidade_para_planilha(
       "escopo": objeto,
   }
   try:
-    response = requests.get(URL_PLANILHA_TM, params=params, timeout=15)
-    if response.status_code == 200:
-      print(
-          "    📊 [PLANILHA] Oportunidade enviada para o Google Sheets com"
-          " sucesso!"
-      )
-    else:
-      print(f"    ⚠️ Resposta da Planilha (Status {response.status_code})")
-  except Exception as e:
-    print(f"    ❌ Falha ao conectar na Planilha Google: {e}")
+    requests.get(URL_PLANILHA_TM, params=params, timeout=10)
+  except Exception:
+    pass
 
 
 def enviar_alerta_telegram(mensagem: str):
@@ -174,24 +95,25 @@ def enviar_alerta_telegram(mensagem: str):
         },
         timeout=10,
     )
-  except Exception as e:
-    print(f"❌ Erro Telegram: {e}")
+  except Exception:
+    pass
 
 
 def executar_mapeamento_pncp():
   print("==================================================================")
-  print("🚀 INICIANDO MONITORAMENTO - TM ENGENHARIA CONSULTORIA")
+  print("🚀 INICIANDO MONITORAMENTO DE ENGENHARIA & SST - PNCP")
   print("==================================================================")
 
   data_fim = datetime.now()
-  data_ini = data_fim - timedelta(days=30)
+  data_ini = data_fim - timedelta(days=90)
 
   data_inicial_str = data_ini.strftime("%Y%m%d")
   data_final_str = data_fim.strftime("%Y%m%d")
 
   total_varridas = 0
   total_oportunidades_tm = 0
-  lista_json_vercel = []
+  licitacoes_encontradas = []
+  ids_processados = set()
 
   headers = {
       "User-Agent": (
@@ -199,41 +121,53 @@ def executar_mapeamento_pncp():
       )
   }
 
-  for codigo_ibge, nome_cidade in MUNICIPIOS_IBGE.items():
-    print(f"🔍 Varrendo Cidade: {nome_cidade}...")
+  for termo in TERMOS_BUSCA_API:
+    print(f"🔍 Consultando PNCP por termo: '{termo}'...")
     pagina = 1
 
-    while pagina <= 3:  # Limita a 3 páginas por município para otimizar tempo
+    while pagina <= 2:
       params = {
           "dataInicial": data_inicial_str,
           "dataFinal": data_final_str,
-          "codigoMunicipioIbge": codigo_ibge,
+          "uf": UF_SP,
+          "q": termo,
           "pagina": pagina,
           "tamPag": 50,
       }
       try:
         resposta = requests.get(
-            URL_PNCP, params=params, headers=headers, timeout=15
+            URL_PNCP_BUSCA, params=params, headers=headers, timeout=15
         )
         if resposta.status_code != 200:
           break
-        dados_pagina = resposta.json()
-      except Exception as e:
-        print(f"    ⚠️ Erro de conexão em {nome_cidade}: {e}")
+        dados = resposta.json()
+      except Exception:
         break
 
       items = (
-          dados_pagina.get("data")
-          or dados_pagina.get("resultados")
-          or (dados_pagina if isinstance(dados_pagina, list) else [])
+          dados.get("data")
+          or dados.get("resultados")
+          or (dados if isinstance(dados, list) else [])
       )
-
       if not items:
         break
 
       total_varridas += len(items)
 
       for edital in items:
+        cnpj_orgao = re.sub(
+            r"\D", "", str(edital.get("orgaoEntidade", {}).get("cnpj", ""))
+        )
+        ano_contrato = edital.get("anoContratacao") or edital.get("ano")
+        seq_contrato = edital.get("sequencialContratacao") or edital.get(
+            "sequencial"
+        )
+        edital_id = f"{cnpj_orgao}_{ano_contrato}_{seq_contrato}"
+
+        if edital_id in ids_processados:
+          continue
+        ids_processados.add(edital_id)
+
         objeto_descricao = (
             edital.get("objetoCompra")
             or edital.get("objetoContratacao")
@@ -246,17 +180,12 @@ def executar_mapeamento_pncp():
           orgao_nome = (
               edital.get("orgaoEntidade", {}).get("razaoSocial")
               or edital.get("orgaoRazaoSocial")
-              or "Órgão Omitido"
+              or "Órgão Público - SP"
+          )
+          municipio_nome = (
+              edital.get("unidadeOrgao", {}).get("municipioNome") or "SP"
           )
           valor_estimado = edital.get("valorTotalEstimado") or 0.0
-
-          cnpj_orgao = re.sub(
-              r"\D", "", str(edital.get("orgaoEntidade", {}).get("cnpj", ""))
-          )
-          ano_contrato = edital.get("anoContratacao") or edital.get("ano")
-          seq_contrato = edital.get("sequencialContratacao") or edital.get(
-              "sequencial"
-          )
 
           if cnpj_orgao and ano_contrato and seq_contrato:
             link_painel_pncp = f"https://pncp.gov.br/app/editais/{cnpj_orgao}/{ano_contrato}/{seq_contrato}"
@@ -265,10 +194,9 @@ def executar_mapeamento_pncp():
 
           print(f"   🎯 FOCADO: {orgao_nome[:35]} | R$ {valor_estimado:,.2f}")
 
-          # Salva no formato para a Vercel
-          lista_json_vercel.append({
+          licitacoes_encontradas.append({
               "orgao": orgao_nome,
-              "cidade": nome_cidade,
+              "cidade": municipio_nome,
               "valor": valor_estimado,
               "objeto": objeto_descricao,
               "link": link_painel_pncp,
@@ -276,13 +204,13 @@ def executar_mapeamento_pncp():
           })
 
           enviar_oportunidade_para_planilha(
-              orgao_nome, valor_estimado, objeto_descricao, link_painel_pncp
+              orgao_nome, valor_estimado, objeto_descricao
           )
 
           msg_telegram = (
               f"🎯 *NOVA OPORTUNIDADE FILTRADA!*\n\n"
               f"🏢 *Órgão:* {orgao_nome}\n"
-              f"📍 *Cidade:* {nome_cidade}\n"
+              f"📍 *Cidade:* {municipio_nome}\n"
               f"💰 *Valor Estimado:* R$ {valor_estimado:,.2f}\n"
               f"📋 *Objeto:* {objeto_descricao[:180]}...\n\n"
               f"🔗 [Abrir Painel Oficial do Edital]({link_painel_pncp})"
@@ -290,11 +218,11 @@ def executar_mapeamento_pncp():
           enviar_alerta_telegram(msg_telegram)
 
       pagina += 1
-      time.sleep(0.3)
+      time.sleep(0.2)
 
-  # Salva o arquivo licitacoes.json atualizado
+  # Salva arquivo para a Vercel
   with open("licitacoes.json", "w", encoding="utf-8") as f:
-    json.dump(lista_json_vercel, f, ensure_ascii=False, indent=2)
+    json.dump(licitacoes_encontradas, f, ensure_ascii=False, indent=2)
 
   print("\n==================================================================")
   print(
