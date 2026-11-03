@@ -1,10 +1,66 @@
 [
   {
-    "orgao": "COMANDO DA AERONAUTICA",
-    "cidade": "São José dos Campos",
-    "valor": 3608404.81,
-    "objeto": "Eventual Aquisição de aparelhos de ar condicionado",
+    "orgao": "MINISTERIO PUBLICO DA UNIAO",
+    "cidade": "São Paulo",
+    "valor": 1200.0,
+    "objeto": "Contratação de empresa especializada para prestação de serviços continuados, sem dedicação exclusiva de mão de obra, de conservação e manutenção (preventiva, corretiva e emergencial) de 1 elevador elétrico, com o fornecimento de mão de obra, materiais, insumos de consumo, peças, componentes de reposição, ferramentas e equipamentos, para a PTM de Guarulhos, pelo critério de menor preço global mensal, conforme condições e exigências estabelecidas no Edital e seus anexos.",
     "link": "https://pncp.gov.br/app/editais",
-    "data_captura": "02/11/2026 23:34"
+    "data_captura": "03/11/2026 00:52"
+  },
+  {
+    "orgao": "FUNDO MUNICIPAL DE SAUDE - FMS",
+    "cidade": "São Paulo",
+    "valor": 0.0,
+    "objeto": "ONTRATAÇÃO DE EMPRESA ESPECIALIZADA EM SERVIÇOS DE MANUTENÇÃO PREVENTIVA, CORRETIVA, CALIBRAÇÃO, INCLUINDO FORNECIMENTO DE PEÇAS, INSUMOS, MÃO-DE-OBRA, EM SISTEMA DE PURIFICAÇÃO DE ÁGUA DA MARCA GEHAKA, INSTALADO NAS DEPENDÊNCIAS DO NÚCLEO DO LABORATÓRIO DE ZOONOSES E DOENÇAS TRANSMITIDAS POR VETORES.  (NLABZOO/DVZCOVISA/SMS/PMSP)​​",
+    "link": "https://pncp.gov.br/app/editais",
+    "data_captura": "03/11/2026 00:52"
+  },
+  {
+    "orgao": "FUNDO MUNICIPAL DE SAUDE - FMS",
+    "cidade": "São Paulo",
+    "valor": 52473.96,
+    "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA EM PRESTAÇÃO DE SERVIÇOS CONTINUADOS PARA MANUTENÇÃO PREVENTIVA, CORRETIVA, AJUSTES, LUBRIFICAÇÃO, AFIAÇÃO E TESTES DE FUNCIONALIDADE, COM FORNECIMENTO DE PEÇAS E ACESSÓRIOS PARA GUILHOTINA DE CORTE ELETROMECÂNICA – MARCA GORRAN, PERTENCENTE À SECRETARIA MUNICIPAL DA SAÚDE.",
+    "link": "https://pncp.gov.br/app/editais",
+    "data_captura": "03/11/2026 00:52"
+  },
+  {
+    "orgao": "FUNDACAO CULTURAL CASSIANO RICARDO",
+    "cidade": "São José dos Campos",
+    "valor": 0.0,
+    "objeto": "Contratação de empresa especializada para locação de equipamentos para impressão, cópia e digitalização corporativa, com acesso via rede local (TCP/IP), durante 24 meses consecutivos, incluindo a manutenção preventiva e corretiva, fornecimento de peças e consumíveis necessários (exceto papel), e sistemas específicos para gerenciamento e bilhetagem de páginas impressas/cópia, conforme especificações detalhadas nos itens e subitens descritos no edital, termo de referência e seus anexos",
+    "link": "https://pncp.gov.br/app/editais",
+    "data_captura": "03/11/2026 00:52"
+  },
+  {
+    "orgao": "UNIVERSIDADE DE SAO PAULO",
+    "cidade": "São Paulo",
+    "valor": 552432.94,
+    "objeto": "Compra e instalação de ar condicionado.",
+    "link": "https://pncp.gov.br/app/editais",
+    "data_captura": "03/11/2026 00:52"
+  },
+  {
+    "orgao": "MUNICIPIO DE SAO SEBASTIAO",
+    "cidade": "São Sebastião",
+    "valor": 43798335.51,
+    "objeto": "AQUISICAO FUTURA DE MATERIAIS DE CONSTRUCAO  ARTEFATOS DE CIMENTO E INSUMOS CORRELATOS EM DIFERENTES ESPECIFICACOES  DESTINADOS A MANUTENCAO E CONSERVACAO DE PREDIOS  VIAS E ESPACOS PUBLICOS DO MUNICIPIO DE SAO SEBASTIAO SP.",
+    "link": "https://pncp.gov.br/app/editais",
+    "data_captura": "03/11/2026 00:52"
+  },
+  {
+    "orgao": "SAO PAULO SECRETARIA DA SEGURANCA PUBLICA",
+    "cidade": "São Paulo",
+    "valor": 192749.49,
+    "objeto": "Aquisição de materiais de manutenção, conservação e construção.",
+    "link": "https://pncp.gov.br/app/editais",
+    "data_captura": "03/11/2026 00:52"
+  },
+  {
+    "orgao": "SAO JOSE DOS CAMPOS CAMARA MUNICIPAL",
+    "cidade": "São José dos Campos",
+    "valor": 6800.0,
+    "objeto": "Contratação de serviço de Manutenção de 2 (dois) receptores com codificadores integrados – TV Câmara, conforme SC nº 302/2026 do Processo nº 14.051/2026.",
+    "link": "https://pncp.gov.br/app/editais",
+    "data_captura": "03/11/2026 00:53"
   }
 ]
