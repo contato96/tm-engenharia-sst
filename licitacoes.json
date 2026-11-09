@@ -1,66 +1,50 @@
 [
   {
-    "orgao": "SAO PAULO SECRETARIA DA SEGURANCA PUBLICA",
-    "cidade": "São Paulo",
-    "valor": 370774.71,
-    "objeto": "Contratação de empresa especializada para execução de serviços de conservação, manutenção e adequação das instalações internas do CIPM, situada na Rua Ribeiro de Lima, 140, Bom Retiro, São Paulo/SP, CEP: 01122-000.",
+    "orgao": "COMANDO DO EXERCITO",
+    "cidade": "Taubaté",
+    "valor": 602798.81,
+    "objeto": "Aquisição de material químico para as atividades de manutenção do Batalhão de Manutenção e Suprimento de Aviação do Exército",
     "link": "https://pncp.gov.br/app/editais",
-    "data_captura": "08/11/2026 23:31"
+    "data_captura": "09/11/2026 00:55"
   },
   {
-    "orgao": "SECRETARIA MUNICIPAL DE SEGURANCA URBANA - SMSU",
-    "cidade": "São Paulo",
-    "valor": 175374.5,
-    "objeto": "Contratação de empresa especializada para prestação de serviços de engenharia para REFORMA, MANUTENÇÃO E INTERLIGAÇÃO DA REDE DE ESGOTO do GAED BELÉM ao Parque Estadual do Belém Manoel Pitta",
+    "orgao": "COMANDO DA AERONAUTICA",
+    "cidade": "São José dos Campos",
+    "valor": 815791.79,
+    "objeto": "Eventual aquisição de material de combate à incêndio",
     "link": "https://pncp.gov.br/app/editais",
-    "data_captura": "08/11/2026 23:32"
+    "data_captura": "09/11/2026 00:55"
   },
   {
-    "orgao": "SAO PAULO SECRETARIA DA EDUCACAO",
+    "orgao": "SECRETARIA DE ESTADO DA SAUDE",
     "cidade": "São Paulo",
     "valor": 0.0,
-    "objeto": "Prestação de serviços contínuos de Manutenção Técnica, Preventiva, Corretiva e Emergencial, incluindo o fornecimento e a substituição de partes e peças dos Elevadores instalados nos prédios das Unidades Escolares desta Diretoria de Ensino. EE CARLOS CASTILHO – MUNICÍPIO DE GUAPIAÇU",
+    "objeto": "Aquisição de compressa de gaze para o Corpo de Bombeiros do Estado de São Paulo.",
     "link": "https://pncp.gov.br/app/editais",
-    "data_captura": "08/11/2026 23:32"
+    "data_captura": "09/11/2026 00:56"
   },
   {
-    "orgao": "MUNICIPIO DE IGARATA",
-    "cidade": "Igaratá",
-    "valor": 206650.0,
-    "objeto": "AQUISIÇÃO DE MATERIAIS ASFÁLTICOS, COMPREENDENDO MASSA ASFÁLTICA DO TIPO CBUQ (CONCRETO BETUMINOSO A QUENTE) E EMULSÃO ASFALTICA RR-2C, DESTINADOS Á EXECUÇÃO DE SERVIÇOS DE PAVIMENTAÇÃO, RECAPEAMENTO, CONSERVAÇÃO, MANUTENÇÃO E RECUPERAÇÃO DAS VIAS PÚBLICAS DO MUNICÍPIO.",
+    "orgao": "UNIVERSIDADE DE SAO PAULO",
+    "cidade": "São Paulo",
+    "valor": 14478.65,
+    "objeto": "Fornecimento de peças (tubing e válvula de agulha) para manutenção em equipamento, Patrimônio 200.005746, Laboratório INTRA, Departamento PMI-Santos, Escola Politécnica da USP",
     "link": "https://pncp.gov.br/app/editais",
-    "data_captura": "08/11/2026 23:32"
+    "data_captura": "09/11/2026 00:56"
   },
   {
-    "orgao": "MUNICIPIO DE JACAREI",
-    "cidade": "Jacareí",
-    "valor": 2653.6,
-    "objeto": "FICHA - 487- RECURSO FEDERAL\r\nAQUISIÇÃO DE ITENS PARA MANUTENÇÃO DO FORRO QUE DESABOU NO CENTRO DE CONVIVÊNCIA  REGIÃO NORTE\r\nCONDIÇÕES DE PAGAMENTO: 11 DFS",
+    "orgao": "MUNICIPIO DE OSASCO",
+    "cidade": "Osasco",
+    "valor": 27521.0,
+    "objeto": "CONTRATAÇÃO DE EMPRESA PARA SERVIÇOS DE MANUTENÇÃO EM VEÍCULOS OFICIAIS - SETIDE",
     "link": "https://pncp.gov.br/app/editais",
-    "data_captura": "08/11/2026 23:32"
+    "data_captura": "09/11/2026 00:56"
   },
   {
-    "orgao": "MUNICIPIO DE SAO JOSE DOS CAMPOS",
-    "cidade": "São José dos Campos",
-    "valor": 8200.0,
-    "objeto": "RC: 2249/2026 RC 2249/2026- CONTRATACAO DE EMPRESA ESPECIALIZADA EM MANUTENCAO DE MOTOR",
+    "orgao": "MUNICIPIO DE OSASCO",
+    "cidade": "Osasco",
+    "valor": 113650.01,
+    "objeto": "CONTRATAÇÃO DE EMPRESA PARA PRESTAÇÃO DE SERVIÇOS DE MANUTENÇÃO PREVENTIVA E CORRETIVA DOS VEÍCULOS QUE COMPÕEM A FROTA DA SECRETARIA DE ADMINISTRAÇÃO.",
     "link": "https://pncp.gov.br/app/editais",
-    "data_captura": "08/11/2026 23:33"
-  },
-  {
-    "orgao": "MUNICIPIO DE SAO JOSE DOS CAMPOS",
-    "cidade": "São José dos Campos",
-    "valor": 6200.0,
-    "objeto": "RC: 2155/2026 RC 2155/2026- MANUTENCAO DE BOMBA CENTRIFUGA",
-    "link": "https://pncp.gov.br/app/editais",
-    "data_captura": "08/11/2026 23:33"
-  },
-  {
-    "orgao": "MUNICIPIO DE UBATUBA",
-    "cidade": "Ubatuba",
-    "valor": 29040.0,
-    "objeto": "Contratação de empresa especializada em manutenção preventiva e corretiva de elevador da marca ADDTECH/SURMONTER, com fornecimento de peças, mão de obra, ferramentas, equipamentos, materiais de consumo e materiais de reposição imediata ",
-    "link": "https://pncp.gov.br/app/editais",
-    "data_captura": "08/11/2026 23:33"
+    "data_captura": "09/11/2026 00:56"
   }
 ]
