@@ -5,7 +5,7 @@
     "valor": 0.0,
     "objeto": "Contratação de prestação de SERVIÇOS DE ENGENHARIA para instalação de sistema de climatização por expansão indireta (ar condicionado central) com fornecimento de material e mão-de-obra para Central de Materiais Esterilizados (CME) do Hospital do Servidor Público Estadual Francisco Morato de Oliveira - HSPE/FMO do Instituto de Assistência Médica ao Servidor Público Estadual - IAMSPE",
     "link": "https://pncp.gov.br/app/editais",
-    "data_captura": "10/11/2026 06:58"
+    "data_captura": "10/11/2026 08:15"
   },
   {
     "orgao": "UNIVERSIDADE DE SAO PAULO",
@@ -13,6 +13,30 @@
     "valor": 93610.58,
     "objeto": "DFD 464/2025  PREGÃO REGISTRO DE PREÇOS - PEÇAS PARA AR CONDICIONADO - MAN PREDIAL",
     "link": "https://pncp.gov.br/app/editais",
-    "data_captura": "10/11/2026 06:58"
+    "data_captura": "10/11/2026 08:16"
+  },
+  {
+    "orgao": "SAO JOSE DOS CAMPOS CAMARA MUNICIPAL",
+    "cidade": "São José dos Campos",
+    "valor": 1218.6,
+    "objeto": "Contratação de serviço de manutenção da faca da guilhotina, conforme especificações e justificativas da SC 289/2026 - Processo 12780/2026.",
+    "link": "https://pncp.gov.br/app/editais",
+    "data_captura": "10/11/2026 08:16"
+  },
+  {
+    "orgao": "MUNICIPIO DE CARAGUATATUBA",
+    "cidade": "Caraguatatuba",
+    "valor": 666.6,
+    "objeto": "Aquisição de óleo sintético para motor 5W-30, visando atender à demanda de manutenção preventiva dos veículos oficiais da frota sob responsabilidade e guarda da Secretaria Municipal de Assistência Social da Estância Balneária de Caraguatatuba.",
+    "link": "https://pncp.gov.br/app/editais",
+    "data_captura": "10/11/2026 08:16"
+  },
+  {
+    "orgao": "MUNICIPIO DE SAO JOSE DOS CAMPOS",
+    "cidade": "São José dos Campos",
+    "valor": 10710.0,
+    "objeto": "RC: 2988/2026 RC 2988 - MANUTENCAO PREVENTIVA E CORRETIVA DE CAMARA FRIA",
+    "link": "https://pncp.gov.br/app/editais",
+    "data_captura": "10/11/2026 08:17"
   }
 ]
