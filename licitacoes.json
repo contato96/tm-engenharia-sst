@@ -1,34 +1,26 @@
 [
   {
-    "orgao": "COMANDO DA MARINHA",
-    "cidade": "São Paulo",
-    "valor": 374816.2,
-    "objeto": "Manutenção predial, mecânica, elétrica e hidráulica",
-    "link": "https://pncp.gov.br/app/editais",
-    "data_captura": "12/11/2026 10:57"
-  },
-  {
-    "orgao": "COMANDO DO EXERCITO",
-    "cidade": "São Paulo",
-    "valor": 593198.76,
-    "objeto": "Contratação de empresa especializada na prestação de serviços continuados de manutenção preventiva, manutenção corretiva e de instalação e desinstalação de sistemas de climatização (condicionamento de ar) no âmbito do Hospital Militar de Área de São Paulo (HMASP), com fornecimento de peças, insumos e ferramentas, sem dedicação exclusiva de mão de obra.",
-    "link": "https://pncp.gov.br/app/editais",
-    "data_captura": "12/11/2026 10:57"
-  },
-  {
-    "orgao": "SAAE SERVICO AUTONOMO DE AGUA E ESGOTO DE JACAREI",
+    "orgao": "MUNICIPIO DE JACAREI",
     "cidade": "Jacareí",
-    "valor": 11860133.79,
-    "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA NA PRESTAÇÃO DE SERVIÇOS DE MANUTENÇÃO PREVENTIVA E CORRETIVA, COM FORNECIMENTO DE MATERIAIS/PEÇAS E MÃO DE OBRA, DE SOFT STARTER E INVERSOR DE FREQUÊNCIA DE DIVERSAS MARCAS, MODELOS E POTÊNCIAS",
+    "valor": 432.0,
+    "objeto": "AQUISIÇÃO DE TORNEIRA DE PAREDE  FILTRO PARA MANUTENÇÃO E SUBSTITUIÇÃO DE ITENS  DANIFICADOS  NO CREAS I\r\nCONDIÇÕES DE PAGAMENTO: 11 DFS",
     "link": "https://pncp.gov.br/app/editais",
-    "data_captura": "12/11/2026 10:57"
+    "data_captura": "12/11/2026 11:57"
   },
   {
-    "orgao": "INSTITUTO DE ASSISTENCIA MEDICA AO SERVIDOR PUBLICO ESTADUAL",
-    "cidade": "São Paulo",
-    "valor": 78768.0,
-    "objeto": "TESTES PARA DOSAGENS BIOQUIMICAS E HORMONAIS- COM COMODATO DE EQUIPAMENTOS E MANUTENÇÃO PREVENTIVA E CORRETIVA",
+    "orgao": "MUNICIPIO DE JACAREI",
+    "cidade": "Jacareí",
+    "valor": 220.0,
+    "objeto": "Contratação de empresa especializada para revisão de exame histopatológico para confirmação diagnóstica devido a incompatibilidade entre laudo anatomopatológico e macroscopia por solicitação médica, conforme Termo de Referência.\r\n\r\nSOLICITANTE: LEILA RONDESL DOS PASSOS\r\nPEDIDO: GPRO 69819",
     "link": "https://pncp.gov.br/app/editais",
-    "data_captura": "12/11/2026 10:57"
+    "data_captura": "12/11/2026 11:57"
+  },
+  {
+    "orgao": "MUNICIPIO DE JACAREI",
+    "cidade": "Jacareí",
+    "valor": 139.5,
+    "objeto": "AQUISIÇÃO DE ITENS PARA MANUTENÇÃO E SUBSTITUIÇÃO DE ITENS  DANIFICADOS  NAS UNIDADES DE PROTEÇÃO SOCIAL BÁSICA\r\nCCRO\r\nCONDIÇÕES DE PAGAMENTO: 11 DFS",
+    "link": "https://pncp.gov.br/app/editais",
+    "data_captura": "12/11/2026 11:57"
   }
 ]
