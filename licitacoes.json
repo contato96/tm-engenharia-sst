@@ -1,1 +1,26 @@
-[]
+[
+  {
+    "orgao": "DEPARTAMENTO DE ESTRADAS DE RODAGEM",
+    "cidade": "São Paulo",
+    "valor": 375302.38,
+    "objeto": "Contratação de serviços de mitigação de dano ambiental por erosão do solo, por meio da implantação de cerca de arame, hidrossemeadura e plantio de bambu, incluindo preparo do solo, plantio e manutenção, a serem executados em área de 13.250,0 m² (treze mil, duzentos e cinquenta metros quadrados), pelo período de 14 (quatorze) meses, sendo 02 (dois) meses destinados à implantação — compreendendo o preparo do solo, hidrossemeadura, plantio de bambus e instalação de cerca de arame — e 12 (doze) meses destinados à manutenção, em imóvel lindeiro à SPA 056/272 – Rodovia de Acesso ao Distrito de Cuiabá Paulista, a partir do km 6+500 m, no município de Mirante do Paranapanema/SP.",
+    "link": "https://pncp.gov.br/app/editais",
+    "data_captura": "14/11/2026 03:46"
+  },
+  {
+    "orgao": "SAO PAULO SECRETARIA DA SEGURANCA PUBLICA",
+    "cidade": "Mogi das Cruzes",
+    "valor": 121327.26,
+    "objeto": "CONTRATAÇÃO DE SERVIÇOS PARA MANUTENÇÃO E CONSERVAÇÃO DOS ALOJAMENTOS DA SEDE DA 1ª CIA DO 32º BPM/M",
+    "link": "https://pncp.gov.br/app/editais",
+    "data_captura": "14/11/2026 03:47"
+  },
+  {
+    "orgao": "PMSP -  SUBPREFEITURA ARICANDUVA/FORMOSA/CARRAO",
+    "cidade": "São Paulo",
+    "valor": 11634.12,
+    "objeto": "Manutenção corretiva e preventiva de equipamentos de ar condicionado, instalados no prédio sede e na Unidade de Armazenamento da Subprefeitura Aricanduva/Formosa/Carrão, totalizando 06 (seis) aparelhos. ",
+    "link": "https://pncp.gov.br/app/editais",
+    "data_captura": "14/11/2026 03:47"
+  }
+]
