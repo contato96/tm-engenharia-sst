@@ -1,50 +1,18 @@
 [
   {
-    "orgao": "COMANDO DO EXERCITO",
-    "cidade": "Taubaté",
-    "valor": 2817105.12,
-    "objeto": "Aquisição de ferramentas para as atividades de manutenção do B Mnt Sup Av Ex",
+    "orgao": "MUNICIPIO DE SAO JOSE DOS CAMPOS",
+    "cidade": "São José dos Campos",
+    "valor": 2570.0,
+    "objeto": "RC 4131 2026 RC 4131 2026 CONTRATACAO DE EMPRESA ESPECIALIZADA PARA CONFECCAO DE PROJETO PARA CERTIFICACAO DE AUTO DE VISTORIA DO CORPO DE BOMBEIROS AVCB E CERTIFICADO DE LICENCA DO CORPO DE BOMBEIROS CLCB",
     "link": "https://pncp.gov.br/app/editais",
-    "data_captura": "18/11/2026 19:55"
+    "data_captura": "18/11/2026 20:52"
   },
   {
-    "orgao": "SAO PAULO SECRETARIA DA SEGURANCA PUBLICA",
+    "orgao": "(UO) ESP-CETESB-CIA AMBIENTAL DO EST.DE SP",
     "cidade": "São Paulo",
-    "valor": 21352.22,
-    "objeto": "AQUISIÇÃO DE MATERIAIS DE MANUTENÇÃO PREDIAL",
+    "valor": 27873.69,
+    "objeto": "Visita técnica de intervenção de manutenção preventiva, visando manter o equipamento VAPODEST 500 COM CARROSSEL de acordo com as especificações do fabricante, a manutenção é composta da verificação e troca de peças que estão inclusas na proposta. Valor das peças R$13.284,72 e serviços R$14.588,97(com imposto sobre serviços de 5%)",
     "link": "https://pncp.gov.br/app/editais",
-    "data_captura": "18/11/2026 19:56"
-  },
-  {
-    "orgao": "FUNDACAO PRO-SANGUE HEMOCENTRO DE SAO PAULO",
-    "cidade": "São Paulo",
-    "valor": 12233.55,
-    "objeto": "Aquisição de Materiais de Reposição de Manutenção - Abraçadeira Serrilhada, Fita Dupla-Face, Fita Zebrada e Assento Sanitário",
-    "link": "https://pncp.gov.br/app/editais",
-    "data_captura": "18/11/2026 19:56"
-  },
-  {
-    "orgao": "UNIVERSIDADE DE TAUBATE",
-    "cidade": "Taubaté",
-    "valor": 17547.88,
-    "objeto": "Serviço de brigada de incêndio",
-    "link": "https://pncp.gov.br/app/editais",
-    "data_captura": "18/11/2026 19:56"
-  },
-  {
-    "orgao": "SECRETARIA DA FAZENDA E PLANEJAMENTO",
-    "cidade": "São Paulo",
-    "valor": 0.0,
-    "objeto": "Contratação de empresa especializada na prestação de serviços de manutenção predial",
-    "link": "https://pncp.gov.br/app/editais",
-    "data_captura": "18/11/2026 19:57"
-  },
-  {
-    "orgao": "CONSELHO REGIONAL DE CONTABILIDADE DO ESTADO SAO PAULO",
-    "cidade": "São Paulo",
-    "valor": 431752.93,
-    "objeto": "Contratação de empresa para prestação de serviços de medicina e segurança do trabalho",
-    "link": "https://pncp.gov.br/app/editais",
-    "data_captura": "18/11/2026 19:57"
+    "data_captura": "18/11/2026 20:53"
   }
 ]
