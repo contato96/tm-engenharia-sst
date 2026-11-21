@@ -1,1 +1,42 @@
-[]
+[
+  {
+    "orgao": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
+    "cidade": "São Paulo",
+    "valor": 52896.67,
+    "objeto": "Contratação de empresa especializada para elaboração de laudo de avaliação de imóveis administrados pela SR/PF/SP, \nconforme condições, quantidades e exigências estabelecidas do Edital e seus anexos.",
+    "link": "https://pncp.gov.br/app/editais",
+    "data_captura": "21/11/2026 08:14"
+  },
+  {
+    "orgao": "TRIBUNAL SUPERIOR ELEITORAL",
+    "cidade": "São Paulo",
+    "valor": 35860.85,
+    "objeto": "Aquisição de materiais para manutenção de imóveis.",
+    "link": "https://pncp.gov.br/app/editais",
+    "data_captura": "21/11/2026 08:14"
+  },
+  {
+    "orgao": "FUNDACAO PRO-SANGUE HEMOCENTRO DE SAO PAULO",
+    "cidade": "São Paulo",
+    "valor": 5398.5,
+    "objeto": "Contratação de Serviço de Manutenção e Recarga de Extintores",
+    "link": "https://pncp.gov.br/app/editais",
+    "data_captura": "21/11/2026 08:14"
+  },
+  {
+    "orgao": "MUNICIPIO DE LORENA",
+    "cidade": "Lorena",
+    "valor": 1240246.45,
+    "objeto": "Contratação de empresa especializada em manutenção e conservação de paralelepípedo e bloquetes, a ser realizada em diversas vias da municipalidade.",
+    "link": "https://pncp.gov.br/app/editais",
+    "data_captura": "21/11/2026 08:15"
+  },
+  {
+    "orgao": "SAO PAULO SECRETARIA DA SEGURANCA PUBLICA",
+    "cidade": "São Paulo",
+    "valor": 105093.48,
+    "objeto": "Contratação de empresa especializada para fornecimento e instalação de eletrocalhas, substituição de coberturas em policarbonato e execução de serviços de reparo, manutenção e conservação do Salão Nobre do 11º BPM/M - Etapa n° 01.",
+    "link": "https://pncp.gov.br/app/editais",
+    "data_captura": "21/11/2026 08:15"
+  }
+]
