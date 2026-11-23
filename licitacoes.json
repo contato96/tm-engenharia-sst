@@ -1,42 +1,42 @@
 [
   {
-    "orgao": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
-    "cidade": "São Paulo",
-    "valor": 52896.67,
-    "objeto": "Contratação de empresa especializada para elaboração de laudo de avaliação de imóveis administrados pela SR/PF/SP, \nconforme condições, quantidades e exigências estabelecidas do Edital e seus anexos.",
+    "orgao": "MUNICIPIO DE SANTA BRANCA",
+    "cidade": "Santa Branca",
+    "valor": 151550.0,
+    "objeto": "AQUISIÇÃO DE TRITURADOR DE GALHOS PARA O PROCESSAMENTO DE RESÍDUOS VEGETAIS PROVENIENTES DOS SERVIÇOS PODA SUPRESSÃO E DE MANUTENÇÃO DA ARBORIZAÇÃO URBANA DO MUNICÍPIO DE SANTA BRANCA/SP.",
     "link": "https://pncp.gov.br/app/editais",
-    "data_captura": "22/11/2026 23:38"
-  },
-  {
-    "orgao": "TRIBUNAL SUPERIOR ELEITORAL",
-    "cidade": "São Paulo",
-    "valor": 35860.85,
-    "objeto": "Aquisição de materiais para manutenção de imóveis.",
-    "link": "https://pncp.gov.br/app/editais",
-    "data_captura": "22/11/2026 23:38"
-  },
-  {
-    "orgao": "FUNDACAO PRO-SANGUE HEMOCENTRO DE SAO PAULO",
-    "cidade": "São Paulo",
-    "valor": 5398.5,
-    "objeto": "Contratação de Serviço de Manutenção e Recarga de Extintores",
-    "link": "https://pncp.gov.br/app/editais",
-    "data_captura": "22/11/2026 23:39"
-  },
-  {
-    "orgao": "MUNICIPIO DE LORENA",
-    "cidade": "Lorena",
-    "valor": 1240246.45,
-    "objeto": "Contratação de empresa especializada em manutenção e conservação de paralelepípedo e bloquetes, a ser realizada em diversas vias da municipalidade.",
-    "link": "https://pncp.gov.br/app/editais",
-    "data_captura": "22/11/2026 23:39"
+    "data_captura": "23/11/2026 00:59"
   },
   {
     "orgao": "SAO PAULO SECRETARIA DA SEGURANCA PUBLICA",
     "cidade": "São Paulo",
-    "valor": 105093.48,
-    "objeto": "Contratação de empresa especializada para fornecimento e instalação de eletrocalhas, substituição de coberturas em policarbonato e execução de serviços de reparo, manutenção e conservação do Salão Nobre do 11º BPM/M - Etapa n° 01.",
+    "valor": 82000.0,
+    "objeto": "Manutenção do telhado da Sede do 39º BPM/M , com substituição de telhas, calhas e rufos",
     "link": "https://pncp.gov.br/app/editais",
-    "data_captura": "22/11/2026 23:39"
+    "data_captura": "23/11/2026 00:59"
+  },
+  {
+    "orgao": "SAO PAULO SECRETARIA DA SEGURANCA PUBLICA",
+    "cidade": "São Paulo",
+    "valor": 125376.96,
+    "objeto": "Reforma e manutenção dos alojamentos da 3ª companhia do 4ºBPM/M",
+    "link": "https://pncp.gov.br/app/editais",
+    "data_captura": "23/11/2026 01:00"
+  },
+  {
+    "orgao": "(UO) ESP-INST.PESQ TECN.EST.DE S.P.S/A-IPT",
+    "cidade": "São Paulo",
+    "valor": 590686.64,
+    "objeto": "Prestação de serviços de manutenção preventiva e corretiva dos equipamentos de combate a incêndio (extintores portáteis e sobre rodas), hidrantes, equipamentos de ar respirável (cilindros de máscara autônoma) e mangueiras de incêndio, na sede do IPT - São Paulo-SP e nas filiais de Franca-SP e São José dos Campos-SP, incluindo a reposição de sinalizações de extintores e hidrantes, fornecimento de suportes de piso e placas de sinalização em PVC fotoluminescente.",
+    "link": "https://pncp.gov.br/app/editais",
+    "data_captura": "23/11/2026 01:00"
+  },
+  {
+    "orgao": "MUNICIPIO DE GUARULHOS",
+    "cidade": "Guarulhos",
+    "valor": 12700561.26,
+    "objeto": "Contratação de empresa para prestação de serviços de licenciamento de integrada de monitoramento de alterações territoriais uso e solução integrada de gestão para a modernização da administração\ntributária municipal incluindo implantação, conversão, treinamento, suporte e manutenção, com todas as suas funcionalidades em ambiente WEB.\n",
+    "link": "https://pncp.gov.br/app/editais",
+    "data_captura": "23/11/2026 01:00"
   }
 ]
