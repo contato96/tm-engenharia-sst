@@ -1,1 +1,26 @@
-[]
+[
+  {
+    "orgao": "COMANDO DA AERONAUTICA",
+    "cidade": "São José dos Campos",
+    "valor": 1190322.48,
+    "objeto": "Aquisição de material para manutenção de bens móveis",
+    "link": "https://pncp.gov.br/app/editais",
+    "data_captura": "25/11/2026 02:53"
+  },
+  {
+    "orgao": "HOSPITAL DAS CLINICAS DA FACULDADE DE MEDICINA DA U S P",
+    "cidade": "São Paulo",
+    "valor": 0.0,
+    "objeto": "Contratação de serviços especializados na prestação de  serviços técnicos especializados contínuos de manutenção, preditiva,\npreventiva, corretiva e emergencial e de assistência técnica dos equipamentos de transporte vertical (Elevadores), incluindo\nfornecimento integral e aplicação de peças, componentes e demais materiais necessários, as suas expensas, sem qualquer\nexceção, nos 52 (cinquenta e dois) elevadores de marca ATLAS SCHINDLER, instalados no Complexo Hospital das Clínicas da FMUSP.",
+    "link": "https://pncp.gov.br/app/editais",
+    "data_captura": "25/11/2026 02:54"
+  },
+  {
+    "orgao": "SAO PAULO SECRETARIA DA SEGURANCA PUBLICA",
+    "cidade": "São Paulo",
+    "valor": 144988.39,
+    "objeto": "Contratação de serviços de empresa especializada para instalação de cortinas e a  execução de manutenção de pintura predial interna e externa das instalações do 9º Batalhão de Polícia Militar Metropolitano, incluindo o fornecimento de mão de obra, materiais, equipamentos e ferramentas necessárias à execução dos serviços",
+    "link": "https://pncp.gov.br/app/editais",
+    "data_captura": "25/11/2026 02:54"
+  }
+]
