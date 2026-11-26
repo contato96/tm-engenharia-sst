@@ -1,1 +1,34 @@
-[]
+[
+  {
+    "orgao": "COMANDO DA MARINHA",
+    "cidade": "Santos",
+    "valor": 410000.0,
+    "objeto": "Contratação de empresa especializada na gestão integrada de manutenção preventiva e corretiva da frota de viaturas leves, comerciais, pesadas, operacionais, reboques e geradores do 4ºBtlOpLitFN. Abrange a implantação de sistema informatizado e rede de oficinas credenciadas, com fornecimento de peças, lubrificantes, pneus e serviços de mecânica, elétrica, funilaria e reboque. A operacionalização será por Sistema de Registro de Preços, no modelo de quarteirização.",
+    "link": "https://pncp.gov.br/app/editais",
+    "data_captura": "26/11/2026 08:59"
+  },
+  {
+    "orgao": "COMANDO DO EXERCITO",
+    "cidade": "Caçapava",
+    "valor": 5838400.0,
+    "objeto": "Contratação de empresa especializada para prestação de serviços continuados de tecnologia para administração e controle (autogestão) da frota para manutenção de viaturas, máquinas e equipamentos.",
+    "link": "https://pncp.gov.br/app/editais",
+    "data_captura": "26/11/2026 08:59"
+  },
+  {
+    "orgao": "TRIBUNAL SUPERIOR ELEITORAL",
+    "cidade": "São Paulo",
+    "valor": 67286.0,
+    "objeto": "Registro de Preços para a aquisição de cabos elétricos para a manutenção predial e conservação das unidades do Tribunal Regional Eleitoral do Estado de São Paulo.",
+    "link": "https://pncp.gov.br/app/editais",
+    "data_captura": "26/11/2026 08:59"
+  },
+  {
+    "orgao": "MUNICIPIO DE CACAPAVA",
+    "cidade": "Caçapava",
+    "valor": 214593.7,
+    "objeto": "AQUISIÇÃO DE MATERIAL PARA MANUTENÇÃO DA ILUMINAÇÃO PÚBLICA",
+    "link": "https://pncp.gov.br/app/editais",
+    "data_captura": "26/11/2026 08:59"
+  }
+]
